@@ -1,30 +1,60 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Search Functionality
     const searchInput = document.getElementById("search-bar");
-    searchInput.addEventListener("keyup", function () {
-        let query = searchInput.value.toLowerCase();
-        let products = document.querySelectorAll(".product-card");
-        products.forEach((product) => {
-            let title = product.querySelector("h3").innerText.toLowerCase();
-            let category = product.getAttribute("data-category").toLowerCase();
-            product.style.display = (title.includes(query) || category.includes(query)) ? "block" : "none";
+    const likeButtons = document.querySelectorAll(".like-btn");
+    const favoritesGrid = document.getElementById("favorites-grid");
+
+    // Load liked items from localStorage
+    let likedItems = JSON.parse(localStorage.getItem("likedProducts")) || [];
+
+    // Apply "liked" class to saved products
+    likeButtons.forEach((button) => {
+        let productCard = button.closest(".product-card");
+        let productTitle = productCard.querySelector("h3").innerText;
+
+        if (likedItems.includes(productTitle)) {
+            button.classList.add("liked");
+            button.innerText = "❤️ Liked";
+        }
+
+        button.addEventListener("click", function () {
+            toggleLike(productTitle, productCard, button);
         });
     });
 
-    // Sidebar Category Filtering
-    let categories = document.querySelectorAll(".sidebar .category");
-    categories.forEach((category) => {
-        category.addEventListener("click", function () {
-            let selectedCategory = this.getAttribute("data-category").toLowerCase();
-            filterByCategory(selectedCategory);
-        });
-    });
+    function toggleLike(productTitle, productCard, button) {
+        if (likedItems.includes(productTitle)) {
+            likedItems = likedItems.filter(item => item !== productTitle);
+            button.classList.remove("liked");
+            button.innerText = "❤️ Like";
+        } else {
+            likedItems.push(productTitle);
+            button.classList.add("liked");
+            button.innerText = "❤️ Liked";
+        }
 
-    function filterByCategory(category) {
+        // Save updated liked items to localStorage
+        localStorage.setItem("likedProducts", JSON.stringify(likedItems));
+
+        // If on Favorites page, remove unliked items
+        if (window.location.pathname.includes("favorites.html")) {
+            productCard.remove();
+        }
+    }
+
+    // Load Favorite Items on favorites.html
+    if (favoritesGrid) {
+        displayFavorites();
+    }
+
+    function displayFavorites() {
         let products = document.querySelectorAll(".product-card");
-        products.forEach((product) => {
-            let productCategory = product.getAttribute("data-category").toLowerCase();
-            product.style.display = productCategory.includes(category) ? "block" : "none";
+        likedItems.forEach((title) => {
+            let product = [...products].find(p => p.querySelector("h3").innerText === title);
+            if (product) {
+                let clone = product.cloneNode(true);
+                clone.querySelector(".like-btn").remove(); // Remove like button from favorites page
+                favoritesGrid.appendChild(clone);
+            }
         });
     }
 });
