@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <title>Remi - Shopping Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Top Navigation Bar -->
     <header>
         <nav>
-            <input type="text" id="search-bar" placeholder="Search...">
+            <input type="text" id="search-bar" placeholder="Search products...">
             <a href="#">Feed</a>
             <a href="#">Browse</a>
             <a href="#">Profile</a>
@@ -24,75 +24,54 @@
     <!-- Sidebar for Categories -->
     <aside class="sidebar">
         <ul>
-            <li><strong>Kitchenware</strong></li>
-            <li class="active">Camping 2025</li>
-            <ul>
-                <li>Misc. Gear</li>
-                <li>Clothing</li>
-                <li class="active">Tents</li>
-                <li>Foodstuff</li>
-            </ul>
-            <li>Apartment</li>
-            <li>Christmas</li>
-            <li>Skincare</li>
+            <li class="category" data-category="camping">Camping 2025</li>
+            <li class="category" data-category="outdoors">Outdoor Gear</li>
+            <li class="category" data-category="clothing">Clothing</li>
+            <li class="category" data-category="skincare">Skincare</li>
         </ul>
     </aside>
 
     <!-- Main Content Area -->
-<main>
-    <h2>Camping 2025 > Tents</h2>
-    <div class="product-grid">
-        <div class="product-card" data-category="camping">
-            <img src="tent1.jpg" alt="Tent">
-            <h3>Magellan Outdoors</h3>
-            <p>$149.99</p>
-            <a href="https://www.academy.com">View</a>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-        
-        <div class="product-card" data-category="camping">
-            <img src="tent2.jpg" alt="Tent">
-            <h3>Wenzel 8-Person Tent</h3>
-            <p>$207.99</p>
-            <a href="https://www.amazon.com">View</a>
-            <button class="like-btn">❤️ Like</button>
-        </div>
+    <main>
+        <h2>Camping 2025 > Tents</h2>
+        <div class="product-grid">
+            <div class="product-card" data-category="camping">
+                <img src="tent1.jpg" alt="Tent">
+                <h3>Magellan Outdoors</h3>
+                <p>$149.99</p>
+                <a href="https://www.academy.com">View</a>
+                <button class="like-btn">❤️ Like</button>
+            </div>
 
-        <div class="product-card" data-category="outdoors">
-            <img src="tent3.jpg" alt="Tent">
-            <h3>Ozark Trails 8-Person Tent</h3>
-            <p>$99.00</p>
-            <a href="https://www.walmart.com">View</a>
-            <button class="like-btn">❤️ Like</button>
-        </div>
+            <div class="product-card" data-category="camping">
+                <img src="tent2.jpg" alt="Tent">
+                <h3>Wenzel 8-Person Tent</h3>
+                <p>$207.99</p>
+                <a href="https://www.amazon.com">View</a>
+                <button class="like-btn">❤️ Like</button>
+            </div>
 
-        <div class="product-card" data-category="camping">
-            <img src="tent4.jpg" alt="Tent">
-            <h3>Kodiak Canvas Lodge Tent</h3>
-            <p>$595.99</p>
-            <a href="https://www.cabelas.com">View</a>
-            <button class="like-btn">❤️ Like</button>
+            <div class="product-card" data-category="outdoors">
+                <img src="tent3.jpg" alt="Tent">
+                <h3>Ozark Trails 8-Person Tent</h3>
+                <p>$99.00</p>
+                <a href="https://www.walmart.com">View</a>
+                <button class="like-btn">❤️ Like</button>
+            </div>
         </div>
-
-        <div class="product-card" data-category="outdoors">
-            <img src="tent5.jpg" alt="Tent">
-            <h3>North Face Dome Tent</h3>
-            <p>$6,000.00</p>
-            <a href="https://www.backcountry.com">View</a>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </div>
-</main>
+    </main>
 
     <!-- Right Sidebar (Filters and Recommendations) -->
-    <aside class="sidebar">
-    <ul>
-        <li class="category" data-category="camping">Camping 2025</li>
-        <li class="category" data-category="outdoors">Outdoor Gear</li>
-        <li class="category" data-category="clothing">Clothing</li>
-        <li class="category" data-category="skincare">Skincare</li>
-    </ul>
-</aside>
+    <aside class="right-sidebar">
+        <input type="text" placeholder="Search...">
+        <h4>Browse by:</h4>
+        <div class="tags">
+            <span>Recent</span>
+            <span>Close Friends</span>
+            <span>Skincare</span>
+            <span>Running</span>
+        </div>
+    </aside>
 
     <!-- Footer -->
     <footer>
@@ -102,6 +81,6 @@
         <a href="#">Profile</a>
     </footer>
 
-    <script src="script.js"></script> <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
