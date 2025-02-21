@@ -111,3 +111,30 @@ nav a:hover {
     color: white;
     border: none;
 }
+
+/* Shopping List Page */
+#shopping-list {
+    list-style: none;
+    padding: 20px;
+}
+
+#shopping-list li {
+    background: #f4f1e9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#clear-list {
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#clear-list:hover {
+    background: darkred;
+}
