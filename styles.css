@@ -1,0 +1,93 @@
+/* Reset and Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 60px auto 50px;
+    grid-template-areas:
+        "header header header"
+        "sidebar main right-sidebar"
+        "footer footer footer";
+    height: 100vh;
+}
+
+/* Header (Navigation Bar) */
+header {
+    grid-area: header;
+    background: #f4f1e9;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background: #f4f1e9;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Active Section */
+.active {
+    font-weight: bold;
+    color: green;
+}
+
+/* Main Content */
+main {
+    grid-area: main;
+    padding: 20px;
+    background: white;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right Sidebar */
+.right-sidebar {
+    grid-area: right-sidebar;
+    background: #e8f0cc;
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background: #d4e6a5;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
