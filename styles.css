@@ -138,3 +138,35 @@ nav a:hover {
 #clear-list:hover {
     background: darkred;
 }
+
+/* Button Group for Shopping List */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Share List Button */
+#share-list {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#share-list:hover {
+    background: #45a049;
+}
+
+/* Share Link Input */
+#share-link {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+}
