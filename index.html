@@ -39,35 +39,60 @@
     </aside>
 
     <!-- Main Content Area -->
-    <main>
-        <h2>Camping 2025 > Tents</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="tent1.jpg" alt="Tent">
-                <h3>Magellan Outdoors</h3>
-                <p>$149.99</p>
-                <a href="https://www.academy.com">View</a>
-            </div>
-            <div class="product-card">
-                <img src="tent2.jpg" alt="Tent">
-                <h3>Wenzel 8-Person Tent</h3>
-                <p>$207.99</p>
-                <a href="https://www.amazon.com">View</a>
-            </div>
+<main>
+    <h2>Camping 2025 > Tents</h2>
+    <div class="product-grid">
+        <div class="product-card" data-category="camping">
+            <img src="tent1.jpg" alt="Tent">
+            <h3>Magellan Outdoors</h3>
+            <p>$149.99</p>
+            <a href="https://www.academy.com">View</a>
+            <button class="like-btn">❤️ Like</button>
         </div>
-    </main>
+        
+        <div class="product-card" data-category="camping">
+            <img src="tent2.jpg" alt="Tent">
+            <h3>Wenzel 8-Person Tent</h3>
+            <p>$207.99</p>
+            <a href="https://www.amazon.com">View</a>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+
+        <div class="product-card" data-category="outdoors">
+            <img src="tent3.jpg" alt="Tent">
+            <h3>Ozark Trails 8-Person Tent</h3>
+            <p>$99.00</p>
+            <a href="https://www.walmart.com">View</a>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+
+        <div class="product-card" data-category="camping">
+            <img src="tent4.jpg" alt="Tent">
+            <h3>Kodiak Canvas Lodge Tent</h3>
+            <p>$595.99</p>
+            <a href="https://www.cabelas.com">View</a>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+
+        <div class="product-card" data-category="outdoors">
+            <img src="tent5.jpg" alt="Tent">
+            <h3>North Face Dome Tent</h3>
+            <p>$6,000.00</p>
+            <a href="https://www.backcountry.com">View</a>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </div>
+</main>
 
     <!-- Right Sidebar (Filters and Recommendations) -->
-    <aside class="right-sidebar">
-        <input type="text" placeholder="Search...">
-        <h4>Browse by:</h4>
-        <div class="tags">
-            <span>Recent</span>
-            <span>Close Friends</span>
-            <span>Skincare</span>
-            <span>Running</span>
-        </div>
-    </aside>
+    <aside class="sidebar">
+    <ul>
+        <li class="category" data-category="camping">Camping 2025</li>
+        <li class="category" data-category="outdoors">Outdoor Gear</li>
+        <li class="category" data-category="clothing">Clothing</li>
+        <li class="category" data-category="skincare">Skincare</li>
+    </ul>
+</aside>
 
     <!-- Footer -->
     <footer>
