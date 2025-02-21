@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const addToListButtons = document.querySelectorAll(".add-to-list");
     const shoppingListElement = document.getElementById("shopping-list");
     const clearListButton = document.getElementById("clear-list");
+    const shareListButton = document.getElementById("share-list");
+    const shareLinkInput = document.getElementById("share-link");
 
     // Load shopping list from localStorage
     let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
@@ -65,6 +67,36 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("shoppingList");
             shoppingListElement.innerHTML = "";
             alert("🗑️ Your shopping list has been cleared!");
+        });
+    }
+
+    // Generate Shareable Shopping List Link
+    if (shareListButton) {
+        shareListButton.addEventListener("click", function () {
+            let encodedList = encodeURIComponent(JSON.stringify(shoppingList));
+            let shareURL = `${window.location.origin}/shopping-list.html?list=${encodedList}`;
+
+            // Show the link
+            shareLinkInput.style.display = "block";
+            shareLinkInput.value = shareURL;
+            shareLinkInput.select();
+            document.execCommand("copy");
+
+            alert("📋 Link copied! Share your shopping list with friends.");
+        });
+    }
+
+    // Load Shared Shopping List from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedList = urlParams.get("list");
+
+    if (sharedList && shoppingListElement) {
+        let decodedList = JSON.parse(decodeURIComponent(sharedList));
+        shoppingListElement.innerHTML = "";
+        decodedList.forEach((item) => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            shoppingListElement.appendChild(li);
         });
     }
 });
