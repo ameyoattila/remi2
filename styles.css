@@ -6,20 +6,12 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: 20% auto 20%;
-    grid-template-rows: 60px auto 50px;
-    grid-template-areas:
-        "header header header"
-        "sidebar main right-sidebar"
-        "footer footer footer";
-    height: 100vh;
     background: #f8f6f1;
+    color: #333;
 }
 
 /* Header */
 header {
-    grid-area: header;
     background: #f4f1e9;
     padding: 10px;
     display: flex;
@@ -42,7 +34,6 @@ nav a:hover {
 
 /* Sidebar */
 .sidebar {
-    grid-area: sidebar;
     background: #f4f1e9;
     padding: 20px;
     height: 100vh;
@@ -91,18 +82,32 @@ nav a:hover {
     border-radius: 8px;
 }
 
-/* Footer */
-footer {
-    grid-area: footer;
-    background: #d4e6a5;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
+/* Favorites Page */
+#favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .sidebar { display: none; }
-    .product-grid { grid-template-columns: repeat(1, 1fr); }
-    header { flex-direction: column; }
+/* Like Button */
+.like-btn {
+    background: none;
+    border: 1px solid #d4cbb5;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.like-btn:hover {
+    background: #d4cbb5;
+    color: white;
+}
+
+.liked {
+    background: red;
+    color: white;
+    border: none;
 }
