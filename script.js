@@ -11,17 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Sidebar Click Functionality
-    let categories = document.querySelectorAll(".sidebar li");
+    // Sidebar Category Filtering
+    let categories = document.querySelectorAll(".sidebar .category");
     categories.forEach((category) => {
         category.addEventListener("click", function () {
-            categories.forEach((item) => item.classList.remove("active"));
-            this.classList.add("active");
-            filterByCategory(this.innerText.toLowerCase());
+            let selectedCategory = this.getAttribute("data-category").toLowerCase();
+            filterByCategory(selectedCategory);
         });
     });
 
-    // Function to Filter Products by Category
     function filterByCategory(category) {
         let products = document.querySelectorAll(".product-card");
         products.forEach((product) => {
